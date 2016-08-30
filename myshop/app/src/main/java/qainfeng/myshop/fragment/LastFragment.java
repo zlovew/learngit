@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +21,9 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+import qainfeng.myshop.NetConstant.NetConstant;
 import qainfeng.myshop.R;
+import qainfeng.myshop.adapter.LastMainAdapter;
 import qainfeng.myshop.adapter.SelectAdapter;
 import qainfeng.myshop.application.MyApplication;
 import qainfeng.myshop.bean.NetLastAllBean;
@@ -42,21 +44,27 @@ public class LastFragment extends BaseFragment implements View.OnClickListener, 
     private SelectAdapter mSelectAdapter;
     private RelativeLayout mRelativeLayout;
     private RequestQueue mRequestQeue;
-    private Button mButton;
+    private TextView mButton;
+    private ProgressBar mProgressBar;
+    private List<NetLastAllBean.ListBean> mList;//数据源
+    private LastMainAdapter mLastMainAdapter;
 
     @Override
     public View initView() {
         View view = View.inflate(mActivity, R.layout.fragment_lat, null);
         mTextViewTitle = (TextView) view.findViewById(R.id.tv_title_select);
         mListViewSelect = (ListView) view.findViewById(R.id.lv_select);
-//        mListViewLast = (ListView) view.findViewById(R.id.lv_last);
+        mListViewLast = (ListView) view.findViewById(R.id.lv_last);
         mRelativeLayout = (RelativeLayout) view.findViewById(R.id.rl_contoner);
-        mButton = (Button) view.findViewById(R.id.id);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.pb_last);
         return view;
     }
 
     @Override
     public void initData() {
+        //一进来 就让progressbar转动
+        mProgressBar.setVisibility(View.VISIBLE);
+
         //设置选择的listview
         mSelectItemBeen = new ArrayList<>();
         shoppiingItem = new String[]{"全部商品", "手机平板", "电脑办公", "数码影音", "家用电器", "钟表首饰", "饰品材料", "虚拟专区", "其他商品"};
@@ -75,38 +83,60 @@ SelectItemBean selectItemBean = new SelectItemBean();
             selectItemBean.setShoppingItem(shoppiingItem[i]);
             mSelectItemBeen.add(selectItemBean);
         }
+        //这是右上角的那个适配器
         mSelectAdapter = new SelectAdapter(mSelectItemBeen, getActivity());
         mListViewSelect.setAdapter(mSelectAdapter);
+
+        //关于主ListView
+        aboutMainListView();
         //设置各种监听
         setListener();
     }
 
+    private void aboutMainListView() {
+        mList = new ArrayList<>();
+        //主要的适配器
+        mLastMainAdapter = new LastMainAdapter(mList, mActivity);
+        mListViewLast.setAdapter(mLastMainAdapter);
+    }
+
     private void dwonload() {
+        Log.i("wwwwwww", "wwwwwwwwwww");
         mRequestQeue = MyApplication.getRequestQeue();
-        StringRequest request = new StringRequest(Request.Method.GET, "", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, NetConstant.LAST_ALL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //解析 数据
+                Log.i("wwwwwww", response);
                 parseData(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                    //
+                Toast.makeText(mActivity, "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
+        mRequestQeue.add(request);
+
     }
 
     private void parseData(String response) {
         Gson gson = new Gson();
         NetLastAllBean netLastAllBean = gson.fromJson(response, NetLastAllBean.class);
+        //下载下来的东西
+        List<NetLastAllBean.ListBean> list = netLastAllBean.getList();
+        Log.i("sssssssss", "sssssssss");
+        mList.addAll(list);
+        mProgressBar.setVisibility(View.GONE);
+        //TODO notifi
+        mLastMainAdapter.notifyDataSetChanged();
 
     }
 
     private void setListener() {
         mRelativeLayout.setOnClickListener(this);
         mListViewSelect.setOnItemClickListener(this);
-        mButton.setOnClickListener(this);
     }
 
     @Override
@@ -121,18 +151,12 @@ SelectItemBean selectItemBean = new SelectItemBean();
                 if(visibility==View.GONE||visibility==View.INVISIBLE){
                     // 执行动画 让他进来
                     initInAnim();
-                    mListViewSelect.setVisibility(View.VISIBLE);
-                    mListViewSelect.setEnabled(true);
+
                 }else if(visibility==View.VISIBLE){
 //                    //  执行动画
                     initOutAnim();
-                    mListViewSelect.setVisibility(View.GONE);
-                    mListViewSelect.setEnabled(false);///////////////////////////还是能点
+
                 }
-                //改变flag
-                break;
-            case R.id.id:
-                Toast.makeText(mActivity, "11111111111", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -142,9 +166,10 @@ SelectItemBean selectItemBean = new SelectItemBean();
                 Animation.RELATIVE_TO_SELF, -1,Animation. RELATIVE_TO_SELF, 0);
         //还有两个Type Animation.RELATIVE_TO_PARENT相对于父亲    Animation.ABSOLUTE(绝对的  很少用到) 后面的是自己打大小
         ta.setDuration(1000);//设置时间
-        ta.setFillAfter(true);
+        ta.setFillAfter(false);
         mListViewSelect.startAnimation(ta);//把图片设置到动画中
-
+        mListViewSelect.setVisibility(View.VISIBLE);//设置可见
+        mListViewSelect.setEnabled(true); //一定要设置这个为true
     }
 
     private void initOutAnim() {
@@ -152,8 +177,16 @@ SelectItemBean selectItemBean = new SelectItemBean();
                 Animation.RELATIVE_TO_SELF, 0,Animation. RELATIVE_TO_SELF, -1);
         //还有两个Type Animation.RELATIVE_TO_PARENT相对于父亲    Animation.ABSOLUTE(绝对的  很少用到) 后面的是自己打大小
         ta.setDuration(1000);//设置时间
-        ta.setFillAfter(true);//设置是否停留在动画之后的结果
+        ta.setFillAfter(false);//设置是否停留在动画之后的结果
         mListViewSelect.startAnimation(ta);//把图片设置到动画中
+        mListViewSelect.setVisibility(View.GONE);//设置为gone
+        mListViewSelect.setEnabled(false);//一定要设置这个为false
+
+//        //把 住的listview 设置enable
+//        mListViewLast.setEnabled(true);
+//        mListViewLast.setVisibility(View.VISIBLE);
+
+
 
     }
 
@@ -174,6 +207,8 @@ SelectItemBean selectItemBean = new SelectItemBean();
                 mSelectAdapter.notifyDataSetChanged();
                 //并且推出去
                 initOutAnim();
+                mListViewSelect.setVisibility(View.GONE);
+                mListViewSelect.setEnabled(false);
                 break;
         }
     }
