@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import qainfeng.myshop.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class  LoginActivity extends AppCompatActivity {
     private ImageView ivBack,ivQq,ivWx;
     private EditText etName,etPwd;
     private Button btLogin;
