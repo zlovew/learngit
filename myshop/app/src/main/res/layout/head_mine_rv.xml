@@ -35,21 +35,15 @@
             android:layout_marginTop="20dp"
             android:src="@mipmap/ic_default_head_user_center"/>
 
-        <!--<ImageView
-            android:id="@+id/iv_head_mine_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="120dp"
-            android:src="@mipmap/ic_launcher"/>-->
         <Button
-            android:id="@+id/iv_head_mine_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/bt_head_mine_login"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
             android:text="登录/注册"
+            android:layout_below="@+id/iv_head_mine_logo"
             android:textColor="#fff"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/mine_head_login"/>
     </RelativeLayout>
     
@@ -70,6 +64,9 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:id="@+id/rl_head_mine_task"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
@@ -98,6 +95,9 @@
                 android:background="#000"/>
 
             <RelativeLayout
+                android:id="@+id/rl_head_mine_invite"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
@@ -126,6 +126,9 @@
                 android:background="#000"/>
 
             <RelativeLayout
+                android:id="@+id/rl_head_mine_sign"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
