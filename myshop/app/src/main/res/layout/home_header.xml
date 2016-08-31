@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.jude.rollviewpager.RollPagerView
+        android:background="@mipmap/ic_launcher"
+        android:id="@+id/rpv_home_picture"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:rollviewpager_play_delay="3000"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+    </com.jude.rollviewpager.RollPagerView>
+    <LinearLayout
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+               android:background="@drawable/menu_classify"
+                android:id="@+id/civ_header_classify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="商品分类"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/civ_header_classify"
+                android:layout_alignRight="@+id/civ_header_classify"
+                android:layout_alignEnd="@+id/civ_header_classify" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@drawable/menu_specialarea"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/civ_header_specialarea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_below="@+id/civ_header_specialarea"
+                android:layout_alignRight="@+id/civ_header_specialarea"
+                android:layout_alignEnd="@+id/civ_header_specialarea"
+                android:text="十元专区"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@drawable/menu_shareorders"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:id="@+id/civ_header_shareorders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_alignRight="@+id/civ_header_shareorders"
+                android:layout_alignEnd="@+id/civ_header_shareorders"
+                android:layout_below="@+id/civ_header_shareorders"
+                android:text="晒单分享"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@drawable/menu_help"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/civ_header_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_alignRight="@+id/civ_header_help"
+                android:layout_alignEnd="@+id/civ_header_help"
+                android:layout_below="@+id/civ_header_help"
+                android:text="新手帮助"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:text="小喇叭"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="15dp"
+            android:text="最新揭晓"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:clickable="true"
+            android:text="全部>"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/iv_home_picture1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_alignRight="@+id/iv_home_picture1"
+                android:layout_alignEnd="@+id/iv_home_picture1"
+                android:text="时间"
+                android:layout_below="@+id/iv_home_picture1"
+                android:drawableLeft="@mipmap/jx_icon_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/iv_home_picture2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_alignRight="@+id/iv_home_picture2"
+                android:layout_alignEnd="@+id/iv_home_picture2"
+                android:text="时间"
+                android:layout_below="@+id/iv_home_picture2"
+                android:drawableLeft="@mipmap/jx_icon_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/iv_home_picture3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp"
+            android:layout_alignRight="@+id/iv_home_picture3"
+            android:layout_alignEnd="@+id/iv_home_picture3"
+            android:text="时间"
+            android:layout_below="@+id/iv_home_picture3"
+            android:drawableLeft="@mipmap/jx_icon_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:background="#e2e1e1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+</LinearLayout>

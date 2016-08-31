@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="#ff3337"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="15dp"
+            android:id="@+id/iv_home_lingdang"
+            android:src="@mipmap/ic_system_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/home_logo"
+            android:id="@+id/iv_home_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/search"
+            android:id="@+id/iv_home_search"
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <!-- 浮动布局 -->
+        <LinearLayout
+            android:id="@+id/ll_floating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" >
+            <include layout="@layout/fragment_listview_floating"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
