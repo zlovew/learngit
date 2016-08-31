@@ -34,4 +34,5 @@ dependencies {
     compile 'co.roverlabs:picasso:2.5.2'
     compile 'com.android.support:design:23.3.0'
     compile 'com.jude:rollviewpager:1.2.9'
+    compile project(':library')
 }
