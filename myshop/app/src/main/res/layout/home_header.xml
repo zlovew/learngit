@@ -151,18 +151,17 @@
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/iv_new_picture1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
             <TextView
                 android:id="@+id/tv_new_info1"
                 android:paddingTop="5dp"
                 android:paddingBottom="15dp"
-                android:layout_alignRight="@+id/iv_home_picture1"
-                android:layout_alignEnd="@+id/iv_home_picture1"
                 android:text="时间"
-                android:layout_below="@+id/iv_home_picture1"
+                android:layout_below="@+id/iv_new_picture1"
+                android:gravity="center"
                 android:drawableLeft="@mipmap/jx_icon_01"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
         <RelativeLayout
@@ -174,18 +173,17 @@
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/iv_new_picture2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
             <TextView
                 android:id="@+id/tv_new_info2"
                 android:paddingTop="5dp"
                 android:paddingBottom="15dp"
-                android:layout_alignRight="@+id/iv_new_picture2"
-                android:layout_alignEnd="@+id/iv_new_picture2"
                 android:text="时间"
                 android:layout_below="@+id/iv_new_picture2"
+                android:gravity="center"
                 android:drawableLeft="@mipmap/jx_icon_01"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
         <RelativeLayout
@@ -197,18 +195,17 @@
             android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/iv_new_picture3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
         <TextView
             android:id="@+id/tv_new_info3"
             android:paddingTop="5dp"
             android:paddingBottom="15dp"
-            android:layout_alignRight="@+id/iv_new_picture3"
-            android:layout_alignEnd="@+id/iv_new_picture3"
             android:text="时间"
             android:layout_below="@+id/iv_new_picture3"
+            android:gravity="center"
             android:drawableLeft="@mipmap/jx_icon_01"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         </RelativeLayout>
     </LinearLayout>

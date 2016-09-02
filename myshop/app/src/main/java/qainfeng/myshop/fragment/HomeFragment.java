@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jude.rollviewpager.RollPagerView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ import qainfeng.myshop.application.MyApplication;
 import qainfeng.myshop.bean.HomeViewPagerBean;
 import qainfeng.myshop.bean.HornBean;
 import qainfeng.myshop.bean.ListShopBean;
+import qainfeng.myshop.bean.NetLastAllBean;
 
 /**
  * on 2016/8/29.
@@ -88,6 +90,7 @@ public class HomeFragment extends BaseFragment {
     public void initData() {
         loadLaBaData();
         loadData();
+        loadNewData();
         loadListData();
         setListener();
         //小喇叭
@@ -105,6 +108,39 @@ public class HomeFragment extends BaseFragment {
                 super.handleMessage(msg);
             }
         };
+    }
+
+    private void loadNewData() {
+        mRequestQueue = MyApplication.getRequestQeue();
+        StringRequest request = new StringRequest(Request.Method.GET, NetConstant.LAST_ALL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //解析 数据
+                parseNewData(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //
+                Toast.makeText(mActivity, "网络错误", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mRequestQueue.add(request);
+    }
+
+    private void parseNewData(String response) {
+        Gson gson = new Gson();
+        NetLastAllBean netLastAllBean = gson.fromJson(response, NetLastAllBean.class);
+        //下载下来的东西
+        List<NetLastAllBean.ListBean> list = netLastAllBean.getList();
+        String url1 = "http://s1.huogou.com/goodspic/"+list.get(0).getGoods_picture().substring(0,4)+"/"+list.get(0).getGoods_picture().substring(4,6)+"/400/400/"+list.get(0).getGoods_picture();
+        Picasso.with(mActivity).load(url1).into(mImageNewPicture1);
+
+        String url2 = "http://s1.huogou.com/goodspic/"+list.get(1).getGoods_picture().substring(0,4)+"/"+list.get(1).getGoods_picture().substring(4,6)+"/400/400/"+list.get(1).getGoods_picture();
+        Picasso.with(mActivity).load(url2).into(mImageNewPicture2);
+
+        String url3 = "http://s1.huogou.com/goodspic/"+list.get(2).getGoods_picture().substring(0,4)+"/"+list.get(2).getGoods_picture().substring(4,6)+"/400/400/"+list.get(2).getGoods_picture();
+        Picasso.with(mActivity).load(url3).into(mImageNewPicture3);
     }
 
     private void loadListData() {

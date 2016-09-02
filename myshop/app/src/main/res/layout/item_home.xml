@@ -20,16 +20,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:textSize="12sp"
                 android:id="@+id/tv_shoping_info1"
                 android:text="限定皮肤免费送噢噢噢噢噢噢噢噢噢噢噢噢哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦"
                 android:maxLines="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RelativeLayout
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textSize="15sp"
                     android:textColor="#9c9c9c"
                     android:id="@+id/tv_item_kaijiang1"
                     android:text="开奖进度"
@@ -47,7 +51,7 @@
                     android:layout_marginTop="7dp"
                     android:layout_below="@+id/tv_item_kaijiang1"
                     android:id="@+id/my_progress1"
-                    android:layout_width="130dp"
+                    android:layout_width="120dp"
                     android:layout_height="5dp"
                     android:max="100"
                     android:progress="40"
@@ -58,8 +62,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/my_progress1"
                     android:src="@mipmap/btn_cart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
             </RelativeLayout>
         </LinearLayout>
         <View
@@ -77,6 +81,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:textSize="12sp"
                 android:id="@+id/tv_shoping_info2"
                 android:text="限定皮肤免费送噢噢噢噢噢噢噢噢噢噢噢噢哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦"
                 android:maxLines="2"
@@ -104,7 +111,7 @@
                     android:layout_marginTop="7dp"
                     android:layout_below="@+id/tv_shoping_kaijiang2"
                     android:id="@+id/my_progress2"
-                    android:layout_width="130dp"
+                    android:layout_width="120dp"
                     android:layout_height="5dp"
                     android:max="100"
                     android:progress="40"
@@ -112,11 +119,11 @@
                     android:progressDrawable="@drawable/progressbar_color"/>
                 <ImageView
                     android:id="@+id/iv_shoping_shopcar2"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@+id/my_progress2"
                     android:src="@mipmap/btn_cart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
