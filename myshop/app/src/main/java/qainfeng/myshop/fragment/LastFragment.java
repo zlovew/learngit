@@ -141,8 +141,6 @@ SelectItemBean selectItemBean = new SelectItemBean();
 
     @Override
     public void onClick(View v) {
-
-
         switch (v.getId()) {
 
             case R.id.rl_contoner:

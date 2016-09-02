@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
     <com.jude.rollviewpager.RollPagerView
         android:background="@mipmap/ic_launcher"
         android:id="@+id/rpv_home_picture"
@@ -107,11 +108,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:layout_margin="15dp"
+            android:src="@mipmap/home_not"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tv_laba_info"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
-            android:text="小喇叭"
+            android:text="恭喜"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -124,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tv_new_total"
             android:layout_alignParentRight="true"
             android:layout_margin="15dp"
             android:clickable="true"
@@ -143,10 +150,11 @@
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/ic_launcher"
-                android:id="@+id/iv_home_picture1"
+                android:id="@+id/iv_new_picture1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_new_info1"
                 android:paddingTop="5dp"
                 android:paddingBottom="15dp"
                 android:layout_alignRight="@+id/iv_home_picture1"
@@ -165,16 +173,17 @@
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/ic_launcher"
-                android:id="@+id/iv_home_picture2"
+                android:id="@+id/iv_new_picture2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_new_info2"
                 android:paddingTop="5dp"
                 android:paddingBottom="15dp"
-                android:layout_alignRight="@+id/iv_home_picture2"
-                android:layout_alignEnd="@+id/iv_home_picture2"
+                android:layout_alignRight="@+id/iv_new_picture2"
+                android:layout_alignEnd="@+id/iv_new_picture2"
                 android:text="时间"
-                android:layout_below="@+id/iv_home_picture2"
+                android:layout_below="@+id/iv_new_picture2"
                 android:drawableLeft="@mipmap/jx_icon_01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -187,16 +196,17 @@
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/iv_home_picture3"
+            android:id="@+id/iv_new_picture3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tv_new_info3"
             android:paddingTop="5dp"
             android:paddingBottom="15dp"
-            android:layout_alignRight="@+id/iv_home_picture3"
-            android:layout_alignEnd="@+id/iv_home_picture3"
+            android:layout_alignRight="@+id/iv_new_picture3"
+            android:layout_alignEnd="@+id/iv_new_picture3"
             android:text="时间"
-            android:layout_below="@+id/iv_home_picture3"
+            android:layout_below="@+id/iv_new_picture3"
             android:drawableLeft="@mipmap/jx_icon_01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

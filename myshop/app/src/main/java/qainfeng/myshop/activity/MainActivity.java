@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
         mFragmentList.add(FindFragment.class);
         mFragmentList.add(CallFragment.class);
         mFragmentList.add(MyFragment.class);
-
-
-
-
         //关于FragmentTabHostca
         aboutTabHost();
     }
@@ -80,4 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
         return view;
     }
+    @Override
+    protected void onResume() {
+        int id = getIntent().getIntExtra("userloginflag", 0);
+        if (id == 1 ) {
+            mFth.setCurrentTab(1);
+        }
+        super.onResume();
+    }
+
 }
