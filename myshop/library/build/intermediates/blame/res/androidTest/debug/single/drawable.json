@@ -1,10 +1,18 @@
 [
     {
-        "merged": "D:\\zw\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "D:\\zw\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+        "merged": "E:\\shop\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "E:\\shop\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
     },
     {
-        "merged": "D:\\zw\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "D:\\zw\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+        "merged": "E:\\shop\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "E:\\shop\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+    },
+    {
+        "merged": "D:\\androidstudioWorkSpce\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "D:\\androidstudioWorkSpce\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+    },
+    {
+        "merged": "D:\\androidstudioWorkSpce\\myshop\\myshop\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "D:\\androidstudioWorkSpce\\myshop\\myshop\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
     }
 ]

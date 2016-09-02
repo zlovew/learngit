@@ -38,7 +38,6 @@ public class  LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.bt_login_login:
-                        Toast.makeText(LoginActivity.this, "1", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.iv_login_back:
                         finish();

@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:background="@mipmap/invite_friends"/>
+                    android:background="@mipmap/hg_icon_task"/>
 
                 <TextView
                     android:id="@+id/tv_head_mine_task"
@@ -86,7 +86,7 @@
                     android:layout_below="@+id/iv_head_mine_task"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:text="新手"/>
+                    android:text="新手任务"/>
             </RelativeLayout>
 
             <View
@@ -117,7 +117,7 @@
                     android:layout_below="@+id/iv_head_mine_invite"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:text="新手"/>
+                    android:text="邀请有礼"/>
             </RelativeLayout>
 
             <View
@@ -139,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:background="@mipmap/invite_friends"/>
+                    android:background="@mipmap/sign_board"/>
 
                 <TextView
                     android:id="@+id/tv_head_mine_sign"
@@ -148,7 +148,7 @@
                     android:layout_below="@+id/iv_head_mine_sign"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:text="新手"/>
+                    android:text="每日签到"/>
             </RelativeLayout>
         </LinearLayout>
         <View

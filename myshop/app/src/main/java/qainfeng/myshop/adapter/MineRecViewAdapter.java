@@ -1,5 +1,7 @@
 package qainfeng.myshop.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import qainfeng.myshop.R;
+import qainfeng.myshop.activity.SettingActivity;
 
 /**
  * Created by Administrator on 2016/8/29.
@@ -25,7 +28,12 @@ public class MineRecViewAdapter extends RecyclerView.Adapter<MineRecViewAdapter.
     private View mHeaderView;
 
     private OnItemClickListener mListener;
-
+    private Context mContext;
+    private int[] mArr;
+    public MineRecViewAdapter(Context context,int[] arr){
+        mContext=context;
+        mArr=arr;
+    }
     public void setOnItemClickListener(OnItemClickListener li) {
         mListener = li;
     }
@@ -78,6 +86,8 @@ public class MineRecViewAdapter extends RecyclerView.Adapter<MineRecViewAdapter.
                 holder.lineShort.setVisibility(View.VISIBLE);
                 holder.lineThick.setVisibility(View.GONE);
             }
+            holder.ivItemShow.setImageResource(mArr[pos]);
+            holder.tvItemShow.setText(mDatas.get(pos));
             if (mListener == null) return;
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -120,7 +130,7 @@ public class MineRecViewAdapter extends RecyclerView.Adapter<MineRecViewAdapter.
                             tvHeadInvite.setText("hehe");
                             break;
                         case R.id.iv_head_mine_setting:
-                            tvHeadSign.setText("ss");
+                            mContext.startActivity(new Intent(mContext, SettingActivity.class));
                             break;
                         case R.id.bt_head_mine_login:
                             tvHeadSign.setText("kk");
