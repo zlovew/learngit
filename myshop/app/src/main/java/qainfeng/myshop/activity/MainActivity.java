@@ -1,9 +1,11 @@
 package qainfeng.myshop.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import custom.CustomDialog;
 import qainfeng.myshop.R;
 import qainfeng.myshop.fragment.CallFragment;
 import qainfeng.myshop.fragment.FindFragment;
@@ -83,5 +86,34 @@ public class MainActivity extends AppCompatActivity {
             mFth.setCurrentTab(1);
         }
         super.onResume();
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //event.getRepeatCount() == 0 表示只点击一次
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            exit1();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    private void exit1() {
+
+        CustomDialog.Builder builder = new CustomDialog.Builder(this);
+        builder.setMessage("是否确认退出伙购");
+        builder.setTitle("提示");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                //设置你的操作事项
+            }
+        });
+
+        builder.setNegativeButton("取消",
+                new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 }
