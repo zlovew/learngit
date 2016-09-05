@@ -1,10 +1,5 @@
 package qainfeng.myshop.fragment;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
@@ -27,7 +22,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import qainfeng.myshop.NetConstant.NetConstant;
 import qainfeng.myshop.R;
 import qainfeng.myshop.activity.MainActivity;
 import qainfeng.myshop.adapter.HomeAdapter;
@@ -171,17 +165,19 @@ public class HomeFragment extends BaseFragment {
     }
     private void setListener() {
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
+
             }
+
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
                 if (firstVisibleItem >=1) {
                     mFloatingLayout.setVisibility(View.VISIBLE);
-                   // mHeaderView.setVisibility(View.GONE);
+
                 } else {
                     mFloatingLayout.setVisibility(View.GONE);
-                    //mHeaderView.setVisibility(View.VISIBLE);
                 }
             }
         });
