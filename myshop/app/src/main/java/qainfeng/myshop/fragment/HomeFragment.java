@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jude.rollviewpager.RollPagerView;
 import com.squareup.picasso.Picasso;
 
@@ -57,6 +60,8 @@ public class HomeFragment extends BaseFragment {
     private List<ListShopBean.ListBean> mData;
     private int position = 0;
     private Handler mHandler;
+    private int currentPage = 1;
+    private boolean isBottom;
     @Override
     public View initView() {
         View view = View.inflate(getActivity(), R.layout.fragment_home, null);
@@ -138,11 +143,13 @@ public class HomeFragment extends BaseFragment {
 
         String url3 = "http://s1.huogou.com/goodspic/"+list.get(2).getGoods_picture().substring(0,4)+"/"+list.get(2).getGoods_picture().substring(4,6)+"/400/400/"+list.get(2).getGoods_picture();
         Picasso.with(mActivity).load(url3).into(mImageNewPicture3);
+
     }
 
     private void loadListData() {
         mRequestQueue = MyApplication.getRequestQeue();
-        StringRequest mRequest2 = new StringRequest(Request.Method.GET, NetConstant.HOME_LIST_PATH, new Response.Listener<String>() {
+        String path = String.format(NetConstant.HOME_LIST_PATH,currentPage);
+        StringRequest mRequest2 = new StringRequest(Request.Method.GET, path, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 parseHomeListJson(response);
@@ -168,19 +175,21 @@ public class HomeFragment extends BaseFragment {
     }
     private void setListener() {
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-
+                if (isBottom&& scrollState==SCROLL_STATE_IDLE){
+                    loadListData();
+                    isBottom = false;
+                }
             }
-
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
                 if (firstVisibleItem >=1) {
                     mFloatingLayout.setVisibility(View.VISIBLE);
-
+                   // mHeaderView.setVisibility(View.GONE);
                 } else {
                     mFloatingLayout.setVisibility(View.GONE);
+                    //mHeaderView.setVisibility(View.VISIBLE);
                 }
             }
         });
