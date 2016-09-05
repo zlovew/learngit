@@ -5,7 +5,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:padding="15dp"
+        android:src="@mipmap/logo"
         android:id="@+id/iv_item_last"
         android:layout_width="150dp"
         android:layout_height="150dp"></ImageView>

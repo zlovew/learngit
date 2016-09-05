@@ -168,7 +168,6 @@ public class HomeFragment extends BaseFragment {
         Gson gson = new Gson();
         ListShopBean listShopBean = gson.fromJson(response, ListShopBean.class);
         mData = new ArrayList<>();
-        currentPage++;
         mData.addAll(listShopBean.getList());
         mHomeShopAdapter = new HomeShopAdapter(getActivity(),mData);
         mListView.setAdapter(mHomeShopAdapter);
@@ -192,10 +191,7 @@ public class HomeFragment extends BaseFragment {
                     mFloatingLayout.setVisibility(View.GONE);
                     //mHeaderView.setVisibility(View.VISIBLE);
                 }
-                isBottom = totalItemCount == firstVisibleItem+visibleItemCount;
-
             }
-
         });
         mTextViewTotal.setOnClickListener(new View.OnClickListener() {
             @Override
