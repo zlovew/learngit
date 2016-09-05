@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import qainfeng.myshop.R;
@@ -53,6 +55,8 @@ public class LastMainAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         //得到这个bean
+        String url2 = "http://s1.huogou.com/goodspic/"+mList.get(position).getGoods_picture().substring(0,4)+"/"+mList.get(position).getGoods_picture().substring(4,6)+"/400/400/"+mList.get(position).getGoods_picture();
+        Picasso.with(mContext).load(url2).into(holder.mImageView);
         NetLastAllBean.ListBean listBean = mList.get(position);
         holder.mTextViewTitel.setText(listBean.getGoods_name());
         holder.mTextViewuser.setText(listBean.getUser_name());
