@@ -8,11 +8,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,5 +104,11 @@ public class RecordActivity extends AppCompatActivity {
         ColorDrawable colorDrawable=new ColorDrawable(0xff0000);
         mPopupWindow.setBackgroundDrawable(colorDrawable);
         mPopupWindow.setAnimationStyle(R.style.popwin_anim_style);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(RecordActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -1,6 +1,7 @@
 package qainfeng.myshop.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class SetRecViewAdapter extends RecyclerView.Adapter<SetRecViewAdapter.Se
     private List<String> mData;
     private List<String> mSub;
     private OnItemClickListener mListener;
+    private View mView;
 
     public SetRecViewAdapter(Context context, List<String> list, List<String> sub) {
         mContext = context;
@@ -40,8 +42,8 @@ public class SetRecViewAdapter extends RecyclerView.Adapter<SetRecViewAdapter.Se
     @Override
     public SetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View view = View.inflate(mContext, R.layout.item_setting_rv, null);
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_setting_rv, parent, false);
-        SetViewHolder setViewHolder = new SetViewHolder(view);
+        mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_setting_rv, parent, false);
+        SetViewHolder setViewHolder = new SetViewHolder(mView);
         return setViewHolder;
     }
 
@@ -93,9 +95,9 @@ public class SetRecViewAdapter extends RecyclerView.Adapter<SetRecViewAdapter.Se
                 @Override
                 public void OnChanged(boolean CheckState) {
                     if (CheckState) {
-
+                        mView.setBackgroundColor(Color.RED);
                     } else {
-
+                        mView.setBackgroundColor(Color.GREEN);
                     }
                 }
             });
